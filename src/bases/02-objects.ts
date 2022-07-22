@@ -1,7 +1,7 @@
 // export const pokemonsIds = [10, 20, 30, 34, 66]
 // pokemonsIds.push("A String")
 // console.log(pokemonsIds)
-interface Pokemon {
+export interface Pokemon {
 	id: number
 	name: string
 	age?: number
