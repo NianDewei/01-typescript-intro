@@ -1,7 +1,7 @@
 import "./style.css"
 import { age, isValid, name } from "./bases/01-types"
 import { pikachu } from "./bases/02-objects"
-import { goku } from "./bases/04-class"
+import { goku } from "./bases/05-injection"
 // import { pokemons } from "./bases/03-arrays"
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
