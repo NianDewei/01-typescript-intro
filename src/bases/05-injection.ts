@@ -1,5 +1,9 @@
 import { Move, PokeAPIResponse } from "../interfaces/pokeapo-res.interface"
-import { PokeApiAdapter } from "../api/poke-api.adapter"
+import {
+	HttpAdapter,
+	// PokeApiAdapter,
+	PokeApiFetchAdapter
+} from "../api/poke-api.adapter"
 
 export class Hero {
 	// getter
@@ -11,7 +15,7 @@ export class Hero {
 		public readonly id: number, // read only, not writable
 		public name: string, // public imageUrl: string
 		// TODO: dependency injection
-		private readonly http: PokeApiAdapter
+		private readonly http: HttpAdapter // interface
 	) {
 		console.log("Initialized constructor")
 	}
@@ -30,12 +34,14 @@ export class Hero {
 		// example with poke api
 		const url = `https://pokeapi.co/api/v2/pokemon/${this.id}`
 		const data = await this.http.get<PokeAPIResponse>(url)
-		// console.log(data.moves)
+		console.log(data.moves)
 		return data.moves
 	}
 }
-const PokeAdapter = new PokeApiAdapter()
-export const goku = new Hero(2, "Goku SS4", PokeAdapter)
+// const PokeApiAxios = new PokeApiAdapter()
+const PokeApiFetch = new PokeApiFetchAdapter()
+
+export const goku = new Hero(2, "Goku SS4", PokeApiFetch)
 // goku.id = 28 --> error in build
 goku.scream()
 goku.speak()
