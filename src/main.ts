@@ -1,6 +1,7 @@
 import "./style.css"
 import { age, isValid, name } from "./bases/01-types"
 import { pikachu } from "./bases/02-objects"
+import { goku } from "./bases/04-class"
 // import { pokemons } from "./bases/03-arrays"
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
@@ -8,4 +9,5 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 	isValid ? "Yes" : "No"
 } </h1>
 <p> My Pokemon is : ${pikachu.name}</p>
+<p> My Hero is : ${goku.name} , ${goku.id} , ${goku.imageUrl}</p>
 `
